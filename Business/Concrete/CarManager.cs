@@ -18,6 +18,18 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        public void Add(Car car)
+        {
+            if (car.CarName.Length>2 && car.DailyPrice>0)
+            {
+                _carDal.Add(car);
+            }
+            else
+            {
+                Console.WriteLine("Girmiş olduğunuz bilgiler uyumsuzdur.");
+            }
+        }
+
         public List<Car> GetAll()
         {
             // iş kodları burraya
@@ -25,6 +37,20 @@ namespace Business.Concrete
 
 
             return _carDal.GetAll();
+        }
+
+        
+
+        public List<Car> GetAllByBrandId(int brandId)
+        {
+            return _carDal.GetAll(c => c.BrandId == brandId);
+        }
+
+        
+
+        public List<Car> GetAllByColorId(int colorId)
+        {
+            return _carDal.GetAll(c => c.ColorId == colorId);
         }
     }
 }
