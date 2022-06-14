@@ -1,10 +1,7 @@
 ﻿using Entities.Abstract;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
@@ -14,7 +11,7 @@ namespace DataAccess.Abstract
 
         T Get(Expression<Func<T, bool>> filter);                 // burada bir şeyin detayına, örnek olarak bir kredinin detayına gitme işi var.
 
-        
+
 
         void Add(T entity);
         void Update(T entity);
