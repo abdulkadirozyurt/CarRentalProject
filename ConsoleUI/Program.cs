@@ -10,7 +10,45 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            //Test1();
 
+            //ColorManager colorManager = new ColorManager(new EfColorDal());
+
+            //foreach (var color in colorManager.GetAll())
+            //{
+            //    Console.WriteLine(color.ColorName);
+            //}
+
+
+            CarManager carManager = new CarManager(new EfCarDal());
+
+            foreach (var car in carManager.GetCarDetails())
+            {
+                Console.WriteLine("Araç Adı: "+car.CarName);
+                Console.WriteLine("Marka: " + car.BrandName);
+                Console.WriteLine("Renk: " + car.ColorName);
+                Console.WriteLine("Günlük Fiyat: "+car.DailyPrice);
+                
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+        private static void Test1()
+        {
             CarManager carManager = new CarManager(new EfCarDal());
 
 
@@ -28,23 +66,23 @@ namespace ConsoleUI
 
             };
 
-           carManager.Add(car1);
+            carManager.Add(car1);
 
             Car car2 = new Car
             {
-                CarId=2,
+                CarId = 2,
                 BrandId = 2,
-                CarName="Renault",
-                ColorId=3,
-                ModelYear=1994,
-                DailyPrice=50,
-                Description="12 Toros"
+                CarName = "Renault",
+                ColorId = 3,
+                ModelYear = 1994,
+                DailyPrice = 50,
+                Description = "12 Toros"
             };
 
-           carManager.Add(car2);
+            carManager.Add(car2);
 
-            
-          
+
+
 
 
 
@@ -61,13 +99,6 @@ namespace ConsoleUI
 
                 Console.WriteLine("************************************");
             }
-
-
-
-            
-
-
-
         }
     }
 }
