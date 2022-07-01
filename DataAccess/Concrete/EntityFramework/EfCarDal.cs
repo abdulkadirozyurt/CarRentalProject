@@ -14,7 +14,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         public List<CarDetailDto> GetCarDetails()
         {
-            using (ReCapProjectContext context=new ReCapProjectContext())
+            using (ReCapProjectContext context = new ReCapProjectContext())
             {
                 var result = from c in context.Cars
                              join b in context.Brands
@@ -28,10 +28,13 @@ namespace DataAccess.Concrete.EntityFramework
                                  ColorName = co.ColorName,
                                  DailyPrice = c.DailyPrice
                              };
-                
+
                 return result.ToList();
-                
+
             }
         }
     }
 }
+
+
+// e-ticaret sisteminde ürünün isminin yanında kategorisinin de ismini göstermek gibi. Kategori id'sinden kategori ismine join diyebiliriz.

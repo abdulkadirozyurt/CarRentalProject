@@ -18,3 +18,6 @@ namespace Entities.DTOs
         public decimal DailyPrice { get; set; }
     }
 }
+
+
+//      birden fazla tablonun join'i (birleşimi) olabilir.
