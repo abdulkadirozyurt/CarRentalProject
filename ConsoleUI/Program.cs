@@ -46,15 +46,6 @@ namespace ConsoleUI
 
 
 
-
-
-
-
-
-
-
-
-
         }
 
         private static void Test1()
