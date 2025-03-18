@@ -15,8 +15,7 @@ namespace Core.DataAccess.EntityFramework
         public void Add(TEntity entity)
         {
             using (TContext context = new TContext())
-            {
-                // recap işi bitince bellekten silinecek. Using o işe yarar.
+            { 
 
                 var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;
