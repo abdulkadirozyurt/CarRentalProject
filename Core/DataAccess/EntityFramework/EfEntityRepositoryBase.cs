@@ -10,32 +10,27 @@ namespace Core.DataAccess.EntityFramework
     public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
         where TEntity : class, IEntity, new()
         where TContext : DbContext, new()
-
     {
         public void Add(TEntity entity)
         {
             using (TContext context = new TContext())
-            { 
-
+            {
                 var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;
 
                 context.SaveChanges();
-
             }
         }
-
 
         public void Delete(TEntity entity)
         {
             using (TContext context = new TContext())
             {
-                // recap işi bitince bellekten silinecek. Using o işe yarar.
-
+                // Context is an expensive object instance.
+                // we use it in a using block to use and dispose of it automatically.
                 var deletedEntity = context.Entry(entity);
                 deletedEntity.State = EntityState.Deleted;
                 context.SaveChanges();
-
             }
         }
 
@@ -51,9 +46,7 @@ namespace Core.DataAccess.EntityFramework
         {
             using (TContext context = new TContext())
             {
-                return filter == null
-                    ? context.Set<TEntity>().ToList()
-                    : context.Set<TEntity>().Where(filter).ToList();
+                return filter == null ? context.Set<TEntity>().ToList() : context.Set<TEntity>().Where(filter).ToList();
             }
         }
 
@@ -61,13 +54,10 @@ namespace Core.DataAccess.EntityFramework
         {
             using (TContext context = new TContext())
             {
-                // recap işi bitince bellekten silinecek. Using o işe yarar.
-
                 var updatedEntity = context.Entry(entity);
                 updatedEntity.State = EntityState.Modified;
 
                 context.SaveChanges();
-
             }
         }
     }

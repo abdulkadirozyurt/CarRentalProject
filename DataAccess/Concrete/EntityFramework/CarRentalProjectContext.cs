@@ -3,10 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-
     // context: Db tabloları ile proje class larını bağlamaya yarar.
 
-    public class ReCapProjectContext : DbContext
+    public class CarRentalProjectContext : DbContext
     {
         // Öncelikle veritabanının yolunu belirtmeliyiz. (connection string)
 
@@ -14,9 +13,9 @@ namespace DataAccess.Concrete.EntityFramework
         {
             // bu metot projemizin ilişkili olduğu veritabanını belirteceğimiz yerdir.
 
-
-            optionsBuilder.UseSqlServer(@"Server = (localdb)\mssqllocaldb; Database = ReCapProjectDatabase; Trusted_Connection = true");
-
+            optionsBuilder.UseSqlServer(
+                @"Server = abdulkadirF17; Database = CarRentalProjectDatabase; Trusted_Connection = true"
+            );
         }
 
         // şimdi, hangi nesnemizin, veritabanında hangi tabloyla ilişkili olduğunu göstereceğiz.
@@ -26,7 +25,5 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Car> Cars { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Color> Colors { get; set; }
-
-
     }
 }

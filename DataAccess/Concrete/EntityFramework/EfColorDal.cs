@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfColorDal : EfEntityRepositoryBase<Color, ReCapProjectContext>, IColorDal
+    public class EfColorDal : EfEntityRepositoryBase<Color, CarRentalProjectContext>, IColorDal
     {
 
     }
