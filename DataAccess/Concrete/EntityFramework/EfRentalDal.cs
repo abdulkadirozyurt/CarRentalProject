@@ -5,5 +5,5 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfOrderDal : EfEntityRepositoryBase<Order, CarRentalProjectContext>, IOrderDal { }
+    public class EfRentalDal : EfEntityRepositoryBase<Rental, CarRentalProjectContext>, IRentalDal { }
 }

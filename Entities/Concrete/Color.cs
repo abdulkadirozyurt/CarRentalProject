@@ -1,10 +1,10 @@
 ﻿using Core.Entities;
+using Entities.Abstract;
 
 namespace Entities.Concrete
 {
-    public class Color : IEntity
+    public class Color : BaseEntity
     {
-        public int Id { get; set; }
         public string ColorName { get; set; }
     }
 }

@@ -4,5 +4,5 @@ using Entities.Concrete;
 
 namespace DataAccess.Abstract
 {
-    public interface IOrderDal : IEntityRepository<Order> { }
+    public interface IRentalDal : IEntityRepository<Rental> { }
 }

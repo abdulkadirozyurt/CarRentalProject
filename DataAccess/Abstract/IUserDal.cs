@@ -4,5 +4,5 @@ using Entities.Concrete;
 
 namespace DataAccess.Abstract
 {
-    public interface IModelDal : IEntityRepository<Model> { }
+    public interface IUserDal : IEntityRepository<User> { }
 }
