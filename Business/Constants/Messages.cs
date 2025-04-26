@@ -11,11 +11,11 @@ namespace Business.Constants
 
     public static class Messages
     {
-        public static string CarAdded = "Araç Eklendi";
-        public static string CarNameInvalid = "Araç ismi Geçersiz";
-        public static string MaintenanceTime = "Bakım zamanı";
-        public static string CarsListed = "Araçlar Listelendi";
-        public static string CarDetailsListed = "Araç detayı listelendi";
-        public static string CarDetailsNotListed = "Araç detayı listelenmedi";
+        public static string ColorAdded = "Color Added";
+        public static string ColorDeleted = "Color Deleted";
+        public static string ColorsListed = "Colors Listed";
+        public static string BrandDeleted = "Brand Deleted";
+        public static string BrandAdded = "Brand Added Succesfully";
+        public static string MaintenanceTime = "Time for Maintenance.";
     }
 }

@@ -7,23 +7,21 @@ using System.Threading.Tasks;
 namespace Core.Utilities.Results.Concrete
 {
     public class SuccessDataResult<T> : DataResult<T>
-    { // (bu işlemin sonucu data'dır, işlem sonucu true'dur, mesaj da budur   demek)
+    {
         public SuccessDataResult(T data, string message)
             : base(data, true, message) { }
 
         public SuccessDataResult(T data)
-            : base(data, true) // mesaj vermek istemiyor
-        { }
+            : base(data, true) { }
 
         public SuccessDataResult(string message)
-            : base(default, true, message) // datanın default halini döndürmek istiyoruz
-        { }
+            : base(default, true, message) { }
 
         public SuccessDataResult()
-            : base(default, true) // mesaj vermek istemiyoruz, işlemin sonucunda datam defaulttur, sonucu true'dur
-        { }
+            : base(default, true) { }
     }
 }
+
 
 // farklı versiyonlar yazmış olduk
 

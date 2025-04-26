@@ -1,29 +1,27 @@
-﻿using Core.Utilities.Results.Abstract;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Utilities.Results.Abstract;
 
 namespace Core.Utilities.Results.Concrete
 {
     public class Result : IResult
     {
-        // readonly (get) olanlar, constructor'da set edilebilir !!!!!!
-        // this demek, class'ın kendisi demek (yani burada Result)
-        public Result(bool success, string message) : this(success) // burada denilmek istenen şey, Result'ın tek parametreli constructor'una success'i yolla. Yani alttaki constructor'a bi bağlantı yolladık.
-        {
-         // Success = success;                  iptal ettik, çünkü aşağıda tekrar ettik kodumuzu (DRY prensibine aykırı)   12. satırı çalıştıran birisi aslında aynı zamanda 18. satırı da çalıştıracaktır, ondan dolayı mesajı yukarda bıraktık, success kısmını aşağı aldık, iki constructor da çalışmış olacak.
-            Message = message;             //   yani bu constructor aslında alttakini de kapsıyor.
-        }
-
-        public Result(bool success)                  // mesaj vermeden sadece işlem sonucu başarılı-başarısız.
+        // readonly properties can be set only in the constructor.
+        public Result(bool success)
         {
             Success = success;
         }
 
-        public bool Success { get; }
+        public Result(bool success, string message)
+            : this(success)
+        {
+            Message = message;
+        }
 
+        public bool Success { get; }
         public string Message { get; }
     }
 }

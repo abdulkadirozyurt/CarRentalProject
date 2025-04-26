@@ -7,8 +7,6 @@ using Core.Utilities.Results.Abstract;
 
 namespace Core.Utilities.Results.Concrete
 {
-    // result'ı inherit etti, ancak Result'ın constructorları olduğu için, bizden constructor istiyor, oradan da base'e (Result'a) bağlantı kurmamız lazım.
-
     public class DataResult<T> : Result, IDataResult<T>
     {
         public DataResult(T data, bool success, string message)
