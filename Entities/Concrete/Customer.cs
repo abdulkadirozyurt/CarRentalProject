@@ -1,4 +1,3 @@
-using System;
 using Entities.Abstract;
 
 namespace Entities.Concrete
