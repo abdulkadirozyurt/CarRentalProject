@@ -20,29 +20,21 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        public void Add(Car car)
+        public IResult Add(Car car)
         {
-            if (car.Description.Length >= 2 && car.DailyPrice != 0)
+            if (car.CarName.Length > 2 && car.DailyPrice > 0)
             {
                 _carDal.Add(car);
-            }
-            else
-            {
-                Console.WriteLine(car.Description + " not providing requirements for adding.");
+                return new SuccessResult(Messages.CarAdded);
             }
 
-            // if (car.CarName.Length > 2 && car.DailyPrice > 0)
-            // {
-            //     _carDal.Add(car);
-            //     return new SuccessResult(Messages.CarAdded);
-            // }
-
-            // return new ErrorResult(Messages.CarNameInvalid);
+            return new ErrorResult(Messages.CarNameInvalid);
         }
 
-        public void Delete(Car car)
+        public IResult Delete(Car car)
         {
             _carDal.Delete(car);
+            return new SuccessResult(Messages.CarDeleted);
         }
 
         public IDataResult<List<Car>> GetAll()
@@ -52,12 +44,12 @@ namespace Business.Concrete
                 return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
             }
 
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarsListed); // success  olduğu için true ibaresini kaldırınca rahatladı kızmadı. çünkü zaten true default
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarsListed);
         }
 
         public IDataResult<List<Car>> GetAllByBrandId(int brandId)
         {
-            return new DataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == brandId), true, Messages.CarsListed);
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == brandId), Messages.CarsListed);
         }
 
         public IDataResult<List<Car>> GetAllByColorId(int colorId)
@@ -80,9 +72,10 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), Messages.CarDetailsListed);
         }
 
-        public void Update(Car car)
+        public IResult Update(Car car)
         {
             _carDal.Update(car);
+            return new SuccessResult(Messages.CarUpdated);
         }
     }
 }
