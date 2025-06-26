@@ -4,6 +4,6 @@ namespace Entities.Concrete
 {
     public class Color : BaseEntity
     {
-        public string ColorName { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace DataAccess.Concrete.EntityFramework
 {
@@ -18,8 +19,9 @@ namespace DataAccess.Concrete.EntityFramework
             );
         }
 
-        // şimdi, hangi nesnemizin, veritabanında hangi tabloyla ilişkili olduğunu göstereceğiz.
 
+        // şimdi, hangi nesnemizin, veritabanında hangi tabloyla ilişkili olduğunu göstereceğiz.
+        Type
 
         // nesne adı  // Tablo adı
         public DbSet<Car> Cars { get; set; }

@@ -1,7 +1,7 @@
 {
     "workbench.colorTheme": "Visual Studio 2019 Dark",
     "github.copilot.enable": {
-        "*": true,
+        "*": false,
         "plaintext": false,
         "markdown": false,
         "scminput": false
